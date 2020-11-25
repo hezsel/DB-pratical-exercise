@@ -1,0 +1,30 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:10.4-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: 'epBancoDeDados'
+      POSTGRES_PASSWORD: 'epBancoDeDados'
+      POSTGRES_DB: 'epBancoDeDados'
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 3s
+      timeout: 2s
+      retries: 10
+
+  web:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    command: bash -c "nodemon src/index.js"
+    links:
+      - postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
