@@ -1,7 +1,7 @@
 {
-  "name": "db-pratical-exercise-api",
+  "name": "db-pratical-exercise",
   "version": "1.0.0",
-  "description": "",
+  "description": "pratical exercise for db class",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js"
