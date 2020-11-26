@@ -1,0 +1,42 @@
+<%- include("../partials/_header") %>
+
+<div class="container mt-5">
+  <div class="d-flex flex-row-reverse mb-3">
+    <a href="/artigo/create" class="btn btn-info">Novo</a>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Resumo</th>
+            <th scope="col">Autoria</th>
+            <th scope="col">Data de publicação</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (artigos) { %>
+            <% for(var i = 0; i < artigos.length; i++) { %>
+              <tr>
+                <td><%= artigos[i].id %></td>
+                <td><%= artigos[i].nome %></td>
+                <td><%= artigos[i].resumo %></td>
+                <td><%= artigos[i].autoria %></td>
+                <td><%= artigos[i].data_de_publicacao %></td>
+                <td>
+                  <a href="/artigo/update/<%= artigos[i].id %>" class="btn btn-info">Edit</a>
+                  <a href="/artigo/delete/<%= artigos[i].id %>" method="POST" class="btn btn-danger">Delete</a>
+                </td>
+              </tr>
+            <% } %>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%- include("../partials/_footer") %>

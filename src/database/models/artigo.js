@@ -10,6 +10,7 @@ module.exports = {
       id: {
         type: INTEGER,
         primaryKey: true,
+        autoIncrement: true,
         allowNull: false,
       },
       nome: {
@@ -24,7 +25,7 @@ module.exports = {
         type: STRING,
         allowNull: false,
       },
-      data_de_publicao: {
+      data_de_publicacao: {
         type: DATE,
         allowNull: false,
       },

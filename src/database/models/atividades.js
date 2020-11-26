@@ -13,6 +13,7 @@ module.exports = {
         type: INTEGER,
         primaryKey: true,
         allowNull: false,
+        autoIncrement: true,
       },
       horario: {
         type: TIME,

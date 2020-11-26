@@ -1,0 +1,44 @@
+<%- include("../partials/_header") %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-5 offset-md-3 card">
+      <div class="card-body">
+        <form action="save" method="POST">
+          <div class="form-group">
+            <input
+              type="text"
+              name="nome"
+              placeholder="Nome"
+              class="form-control mb-2"
+              autofocus
+            />
+            <input
+              type="text"
+              name="autoria"
+              placeholder="Autoria"
+              class="form-control mb-2"
+            />
+            <input
+              type="text"
+              name="data_de_publicacao"
+              placeholder="Data de publicação"
+              class="form-control mb-2"
+            />
+            <input
+              type="text"
+              name="resumo"
+              placeholder="Resumo"
+              class="form-control mb-2"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Criar Artigo
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("../partials/_footer") %>
