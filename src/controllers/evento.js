@@ -109,7 +109,7 @@ const remove = async (req, res) => {
   verifyIfExists(res, evento, 'evento')
 
   for (const atividade of evento.atividades) {
-    for (const apresentado of evento.apresentados) {
+    for (const apresentado of atividade.apresentados) {
       await apresentado.destroy()
     }
     await atividade.destroy()

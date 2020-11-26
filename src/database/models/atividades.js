@@ -15,6 +15,10 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
       },
+      nome: {
+        type: STRING,
+        allowNull: true,
+      },
       horario: {
         type: TIME,
         allowNull: true,
@@ -40,11 +44,7 @@ module.exports = {
         allowNull: true,
       },
       lotacao: {
-        type: STRING,
-        allowNull: true,
-      },
-      nome: {
-        type: STRING,
+        type: INTEGER,
         allowNull: true,
       },
       tema: {
@@ -55,23 +55,7 @@ module.exports = {
         type: STRING,
         allowNull: true,
       },
-      minicurriculo: {
-        type: STRING,
-        allowNull: true,
-      },
       objetivo: {
-        type: STRING,
-        allowNull: true,
-      },
-      nivel: {
-        type: STRING,
-        allowNull: true,
-      },
-      nome_sessao: {
-        type: STRING,
-        allowNull: true,
-      },
-      tipo: {
         type: STRING,
         allowNull: true,
       },

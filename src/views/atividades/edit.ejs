@@ -1,0 +1,117 @@
+<%- include("../partials/_header") %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-5 offset-md-3 card">
+      <div class="card-body">
+        <form action="/atividades/update/<%= atividades.id %>" method="POST">
+          <div class="form-group">
+            <select
+              placeholder="Evento"
+              class="custom-select mb-2"
+              name="fk_Evento_id"
+              value="<%= atividades.fk_Evento_id %>"
+            >
+              <% if (listaDeEventos) { %>
+                <% for(let i = 0; i < listaDeEventos.length; i++) { %>
+                  <% if (atividades.fk_Evento_id === listaDeEventos[i].id) { %>
+                    <option selected value="<%= listaDeEventos[i].id %>">
+                      <%= listaDeEventos[i].id %> - <%= listaDeEventos[i].nome %> - <%= listaDeEventos[i].data %>
+                    </option>
+                  <% } else { %>
+                    <option value="<%= listaDeEventos[i].id %>">
+                      <%= listaDeEventos[i].id %> - <%= listaDeEventos[i].nome %> - <%= listaDeEventos[i].data %>
+                    </option>
+                  <% } %>
+                <% } %>
+              <% } %>
+            </select>
+            <input
+              type="text"
+              name="nome"
+              value="<%= atividades.nome %>"
+              placeholder="Nome"
+              class="form-control mb-2"
+              autofocus
+            />
+            <select
+              placeholder="Tipo da Atividade"
+              class="custom-select mb-2"
+              name="Atividades_TIPO"
+              value="<%= atividades.Atividades_TIPO %>"
+            >
+              <option value="Apresentação de Artigos">Apresentação de Artigos</option>
+              <option value="Palestra">Palestra</option>
+              <option value="Reunião">Reunião</option>
+              <option value="Tutorial">Tutorial</option>
+              <option value="Workshop">Workshop</option>
+              <option value="Concurso">Concurso</option>
+              <option value="Atividade Social">Atividade Social</option>
+            </select>
+            <input
+              type="text"
+              name="tema"
+              value="<%= atividades.tema %>"
+              placeholder="Tema"
+              class="form-control mb-2"
+            />
+            <input
+              type="text"
+              name="publico_alvo"
+              value="<%= atividades.publico_alvo %>"
+              placeholder="Público alvo"
+              class="form-control mb-2"
+            />
+            <input
+              type="text"
+              name="data"
+              value="<%= atividades.data %>"
+              placeholder="Data"
+              class="form-control mb-2"
+            />
+            <input
+              type="text"
+              name="horario"
+              value="<%= atividades.horario %>"
+              placeholder="Horário"
+              class="form-control mb-2"
+            />
+            <input
+              type="text"
+              name="objetivo"
+              value="<%= atividades.objetivo %>"
+              placeholder="Objetivo"
+              class="form-control mb-2"
+            />
+            <select
+              multiple
+              placeholder="Artigos"
+              class="custom-select"
+              name="artigos"
+              value="<%= atividades.artigos %>"
+            >
+              <% if (listaDeArtigos) { %>
+                <% for(let i = 0; i < listaDeArtigos.length; i++) { %>
+                  <% if (artigosAtrelados.includes(listaDeArtigos[i].id)) { %>
+                    <option selected value="<%= listaDeArtigos[i].id %>">
+                      <%= listaDeArtigos[i].id %> - <%= listaDeArtigos[i].nome %> - <%= listaDeArtigos[i].autoria %>
+                    </option>
+                  <% } else { %>
+                    <option value="<%= listaDeArtigos[i].id %>">
+                      <%= listaDeArtigos[i].id %> - <%= listaDeArtigos[i].nome %> - <%= listaDeArtigos[i].autoria %>
+                    </option>
+                  <% } %>
+                <% } %>
+              <% } %>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Salvar Atividade
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("../partials/_footer") %>
