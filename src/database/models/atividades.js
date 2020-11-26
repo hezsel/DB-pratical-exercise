@@ -17,71 +17,71 @@ module.exports = {
       },
       horario: {
         type: TIME,
-        allowNull: false,
+        allowNull: true,
       },
       duracao: {
         type: TIME,
-        allowNull: false,
+        allowNull: true,
       },
       publico_alvo: {
         type: STRING,
-        allowNull: false,
+        allowNull: true,
       },
       valor_inscricao: {
         type: FLOAT,
-        allowNull: false,
+        allowNull: true,
       },
       data: {
         type: DATE,
-        allowNull: false,
+        allowNull: true,
       },
       promotor: {
         type: STRING,
-        allowNull: false,
+        allowNull: true,
       },
       lotacao: {
         type: STRING,
-        allowNull: false,
+        allowNull: true,
       },
       nome: {
         type: STRING,
-        allowNull: false,
+        allowNull: true,
       },
       tema: {
         type: STRING,
-        allowNull: false,
+        allowNull: true,
       },
       afiliacao: {
         type: STRING,
-        allowNull: false,
+        allowNull: true,
       },
       minicurriculo: {
         type: STRING,
-        allowNull: false,
+        allowNull: true,
       },
       objetivo: {
         type: STRING,
-        allowNull: false,
+        allowNull: true,
       },
       nivel: {
         type: STRING,
-        allowNull: false,
+        allowNull: true,
       },
       nome_sessao: {
         type: STRING,
-        allowNull: false,
+        allowNull: true,
       },
       tipo: {
         type: STRING,
-        allowNull: false,
+        allowNull: true,
       },
       numero_sessao: {
         type: STRING,
-        allowNull: false,
+        allowNull: true,
       },
-      Atividade_TIPO: {
+      Atividades_TIPO: {
         type: STRING,
-        allowNull: false,
+        allowNull: true,
       },
       fk_Evento_id: {
         type: INTEGER,
@@ -99,10 +99,15 @@ module.exports = {
   },
   associateModels(Atividades, {
     Evento,
+    Apresentado,
   }) {
     Atividades.belongsTo(Evento, {
       foreignKey: 'fk_Evento_id',
       as: 'evento',
+    })
+    Atividades.hasMany(Apresentado, {
+      foreignKey: 'fk_Atividades_id',
+      as: 'apresentados',
     })
   },
 }

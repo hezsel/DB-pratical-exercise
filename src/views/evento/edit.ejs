@@ -1,0 +1,62 @@
+<%- include("../partials/_header") %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-5 offset-md-3 card">
+      <div class="card-body">
+        <form action="/evento/update/<%= evento.id %>" method="POST">
+          <div class="form-group">
+            <input
+              type="text"
+              name="nome"
+              value="<%= evento.nome%>"
+              placeholder="Nome"
+              class="form-control mb-2"
+              autofocus
+            />
+            <input
+              type="text"
+              name="publico_alvo"
+              value="<%= evento.publico_alvo%>"
+              placeholder="Público alvo"
+              class="form-control mb-2"
+            />
+            <input
+              type="text"
+              name="numEdicao"
+              value="<%= evento.numEdicao%>"
+              placeholder="Número da edição"
+              class="form-control mb-2"
+            />
+            <input
+              type="text"
+              name="data"
+              value="<%= evento.data%>"
+              placeholder="Data"
+              class="form-control mb-2"
+            />
+            <input
+              type="text"
+              name="tema"
+              value="<%= evento.tema%>"
+              placeholder="Tema"
+              class="form-control mb-2"
+            />
+            <input
+              type="text"
+              name="descricao"
+              value="<%= evento.descricao%>"
+              placeholder="Descrição"
+              class="form-control mb-2"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Criar Evento
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("../partials/_footer") %>

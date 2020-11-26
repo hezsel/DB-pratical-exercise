@@ -5,6 +5,12 @@ const {
 module.exports = {
   createModel(sequelize) {
     const Apresentado = sequelize.define('Apresentado', {
+      id: {
+        type: INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true,
+      },
       fk_Artigo_id: {
         type: INTEGER,
         allowNull: false,
