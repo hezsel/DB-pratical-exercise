@@ -22,7 +22,7 @@
           </tr>
         </thead>
         <tbody>
-          <% if (atividades) { %>
+          <% if (atividades.length > 0) { %>
             <% for(let i = 0; i < atividades.length; i++) { %>
               <tr>
                 <td><%= atividades[i].id %></td>
@@ -44,6 +44,19 @@
                 </td>
               </tr>
             <% } %>
+          <% } else { %>
+            <tr>
+              <td></td>
+              <td>Sem atividades cadastrados :(</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
           <% } %>
         </tbody>
       </table>

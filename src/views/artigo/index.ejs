@@ -18,7 +18,7 @@
           </tr>
         </thead>
         <tbody>
-          <% if (artigos) { %>
+          <% if (artigos.length > 0) { %>
             <% for(let i = 0; i < artigos.length; i++) { %>
               <tr>
                 <td><%= artigos[i].id %></td>
@@ -32,6 +32,15 @@
                 </td>
               </tr>
             <% } %>
+          <% } else { %>
+            <tr>
+              <td></td>
+              <td>Sem artigos cadastrados :(</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
           <% } %>
         </tbody>
       </table>

@@ -21,7 +21,7 @@
           </tr>
         </thead>
         <tbody>
-          <% if (eventos) { %>
+          <% if (eventos.length > 0) { %>
             <% for(let i = 0; i < eventos.length; i++) { %>
               <tr>
                 <td><%= eventos[i].id %></td>
@@ -38,6 +38,18 @@
                 </td>
               </tr>
             <% } %>
+          <% } else { %>
+            <tr>
+              <td></td>
+              <td>Sem eventos cadastrados :(</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
           <% } %>
         </tbody>
       </table>
