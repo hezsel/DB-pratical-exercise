@@ -1,18 +1,11 @@
 const { Artigo } = require('../database')
+const verifyIfExists = require('./utils/verifyIfExists')
 
 const getById = (id) => Artigo.findOne({
   where: {
     id,
   }
 })
-
-const verifyIfExists = (item, name) => {
-  if (!item) {
-    res.json({
-      erro: `${name}_invalido`
-    })  
-  }
-}
 
 const list = async (req, res) => {
   const artigos = await Artigo.findAll()
@@ -41,7 +34,7 @@ const save = async (req, res) => {
     data_de_publicacao,
   })
 
-  verifyIfExists(artigo, 'artigo')
+  verifyIfExists(res, artigo, 'artigo')
 
   res.redirect('/artigo')
 }
@@ -51,7 +44,7 @@ const edit = async (req, res) => {
 
   const artigo = await getById(id)
 
-  verifyIfExists(artigo, 'artigo')
+  verifyIfExists(res, artigo, 'artigo')
 
   res.render('artigo/edit', {
     artigo,
@@ -69,7 +62,7 @@ const update = async (req, res) => {
 
   const artigo = await getById(id)
 
-  verifyIfExists(artigo, 'artigo')
+  verifyIfExists(res, artigo, 'artigo')
 
   await artigo.update({
     nome,
@@ -86,7 +79,7 @@ const remove = async (req, res) => {
 
   const artigo = await getById(id)
 
-  verifyIfExists(artigo, 'artigo')
+  verifyIfExists(res, artigo, 'artigo')
 
   await artigo.destroy()
 
