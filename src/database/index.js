@@ -11,6 +11,12 @@ const databaseConfig = {
   logging: console.log,
   seederStorage: 'sequelize',
   url: process.env.DATABASE_URL,
+  dialectOptions: process.env.NODE_ENV === 'production' ? {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  } : {}, 
 }
 
 const {
