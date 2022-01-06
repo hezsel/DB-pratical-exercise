@@ -1,0 +1,47 @@
+<%- include("../partials/_header") %>
+
+<%- include("../partials/_openCard") %>
+<form action="/consulta/choose-date" method="GET">
+  <h5 class="card-title">Médico</h5>
+  <select
+    id="profissional"
+    name="profissional"
+    class="form-control mb-2"
+  >
+    <option disabled selected style="display: none;">...</option>
+    <% if (profissionais.length > 0) { %>
+      <% for(let i = 0; i < profissionais.length; i++) { %>
+        <option value="<%= profissionais[i].crm %>"><%= profissionais[i].nome %></option>
+      <% } %>
+    <% } else { %>
+      <option value="">Nenhum Profissional Cadastrado</option>
+    <% } %>
+  </select>
+
+  <h5 class="card-title">Paciente</h5>
+  <select
+    id="paciente"
+    name="paciente"
+    class="form-control mb-2"
+  >
+    <option disabled selected style="display: none;">...</option>
+    <% if (pacientes.length > 0) { %>
+      <% for(let i = 0; i < pacientes.length; i++) { %>
+        <option value="<%= pacientes[i].cpf %>">
+          <%= pacientes[i].cpf %> - <%= pacientes[i].nome %>
+        </option>
+      <% } %>
+    <% } else { %>
+      <option value="">Nenhum Paciente Cadastrado</option>
+    <% } %>
+  </select>
+  <div class="d-flex flex-row-reverse mt-4">
+    <button type="submit" class="btn btn-primary">
+      Escolher o horário ->
+    </button>
+  </div>
+</form>
+
+<%- include("../partials/_closeCard") %>
+          
+<%- include("../partials/_footer") %>

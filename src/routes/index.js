@@ -1,15 +1,13 @@
 const example = require('./example')
-const artigo = require('./artigo')
-const evento = require('./evento')
-const atividades = require('./atividades')
+const paciente = require('./paciente')
 const home = require('./home')
+const consulta = require('./consulta')
 
 const routes = (app) => {
   app.use('/example', example)
-  app.use('/artigo', artigo)
-  app.use('/evento', evento)
-  app.use('/atividades', atividades)
+  app.use('/paciente', paciente)
   app.use('/', home)
+  app.use('/consulta', consulta)
 }
 
 module.exports = routes

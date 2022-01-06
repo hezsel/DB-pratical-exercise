@@ -1,0 +1,49 @@
+<%- include("../partials/_header") %>
+
+<div class="container mt-5">
+  <div class="d-flex flex-row-reverse mb-3">
+    <a href="/paciente/create" class="btn btn-primary">Cadastrar</a>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th scope="col">CPF</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Data de Nascimento</th>
+            <th scope="col">Sexo Biológico</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (pacientes.length > 0) { %>
+            <% for(let i = 0; i < pacientes.length; i++) { %>
+              <tr>
+                <td><%= pacientes[i].cpf %></td>
+                <td><%= pacientes[i].nome %></td>
+                <td><%= new Date(pacientes[i].data_de_nascimento).toLocaleString().split(',')[0] %></td>
+                <td><%= pacientes[i].sexo %></td>
+                <td>
+                  <a href="/paciente/update/<%= pacientes[i].cpf %>" class="btn btn-primary">Editar</a>
+                  <a href="/paciente/delete/<%= pacientes[i].cpf %>" method="POST" class="btn btn-danger">Deletar</a>
+                </td>
+              </tr>
+            <% } %>
+          <% } else { %>
+            <tr>
+              <td></td>
+              <td>Sem pacientes cadastrados :(</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%- include("../partials/_footer") %>

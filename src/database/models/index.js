@@ -1,11 +1,11 @@
-const Evento = require('./evento')
-const Atividades = require('./atividades')
-const Artigo = require('./artigo')
-const Apresentado = require('./apresentado')
+const Paciente = require('./paciente')
+const Medico = require('./medico')
+const Consulta = require('./consulta')
+const Agenda = require('./agenda')
 
 module.exports = {
-  Evento,
-  Atividades,
-  Artigo,
-  Apresentado,
+  Paciente,
+  Medico,
+  Agenda,
+  Consulta,
 }

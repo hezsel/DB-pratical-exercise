@@ -1,0 +1,72 @@
+<%- include("../partials/_header") %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-5 offset-md-3 card">
+      <div class="card-body">
+        <form action="/paciente/save" method="POST">
+          <div class="form-group">
+            <label for="cpf">CPF</label>
+            <input
+              type="text"
+              id="cpf"
+              name="cpf"
+              placeholder="XXX.XXX.XXX-XX"
+              class="form-control mb-2"
+              autofocus
+            />
+            <label for="nome">Nome</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder=""
+              class="form-control mb-2"
+              autofocus
+            />
+            <label for="sexo">Sexo</label>
+            <select
+              id="sexo"
+              name="sexo"
+              class="form-control mb-2"
+            >
+              <option value="Masculino">Masculino</option>
+              <option value="Feminino">Feminino</option>
+            </select>
+            <label for="data_de_nascimento">Data de nascimento</label>
+            <input
+              type="date"
+              id="data_de_nascimento"
+              name="data_de_nascimento"
+              placeholder="Data de Nascimento"
+              class="form-control mb-2"
+              autofocus
+            />
+            <label for="endereco">Endereço</label>
+            <textarea
+              type="text"
+              id="endereco"
+              name="endereco"
+              rows="3"
+              placeholder=""
+              class="form-control mb-2"
+            ></textarea>
+            <label for="telefone">Telefone</label>
+            <input
+              type="text"
+              id="telefone"
+              name="telefone"
+              placeholder="(XX) XXXXX-XXXX"
+              class="form-control mb-2"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Cadastrar Paciente
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("../partials/_footer") %>

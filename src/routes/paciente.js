@@ -6,7 +6,7 @@ const {
   list,
   save,
   update,
-} = require('../controllers/artigo')
+} = require('../controllers/paciente')
 
 const router = express.Router()
 
@@ -14,8 +14,8 @@ router
   .get('/', list)
   .get('/create', create)
   .post('/save', save)
-  .get('/update/:id', edit)
-  .post('/update/:id', update)
-  .get('/delete/:id', remove)
+  .get('/update/:cpf', edit)
+  .post('/update/:cpf', update)
+  .get('/delete/:cpf', remove)
 
 module.exports = router

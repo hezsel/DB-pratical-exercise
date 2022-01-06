@@ -1,0 +1,59 @@
+<div class="row mb-3">
+  <div class="col-md-2"></div>
+  <div class="col-md-2">
+    <select
+      id="profissional"
+      name="crm_medico"
+      class="form-control mb-2"
+    >
+      <% if (profissionais.length > 0) { %>
+        <% for(let i = 0; i < profissionais.length; i++) { %>
+          <option
+            value="<%= profissionais[i].crm %>"
+            <%= profissionais[i].crm === crm_medico ? 'selected' : '' %>
+          >
+            <%= profissionais[i].nome%>
+          </option>
+        <% } %>
+      <% } %>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <input
+      id="data-input"
+      type="date"
+      name="data"
+      value="<%= data %>"
+      class="form-control mb-2"
+    />
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2">
+    <a href="/consulta/create" class="btn btn-primary">Nova Consulta</a>
+  </div>
+  <script>
+    const dataInput = document.querySelector('#data-input')
+    const profissionalInput = document.querySelector('#profissional')
+    const baseUrl = window.location.href.split('?')[0]
+      .replace('/finalize', '')
+      .replace('/cancel', '')
+  
+    dataInput.addEventListener('change', function () {
+      const date = new Date(this.value)
+      if (
+        date instanceof Date
+        && !isNaN(date.valueOf())
+        && this.value.length === 10
+      ) {
+        const newUrl = `${baseUrl}?profissional=${profissionalInput.value}&data=${dataInput.value}`
+        window.location.href = newUrl
+      }
+    })
+
+    profissionalInput.addEventListener('change', function () {
+      const date = new Date(dataInput.value)
+        const newUrl = `${baseUrl}?profissional=${profissionalInput.value}&data=${dataInput.value}`
+        window.location.href = newUrl
+    })
+  </script>
+</div>

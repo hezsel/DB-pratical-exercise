@@ -1,0 +1,72 @@
+<%- include("../partials/_header") %>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-5 offset-md-3 card">
+      <div class="card-body">
+        <form action="/paciente/update/<%= paciente.cpf %>" method="POST">
+          <div class="form-group">
+            <label for="cpf">CPF</label>
+            <input
+              type="text"
+              name="cpf"
+              placeholder="XXX.XXX.XXX-XX"
+              value="<%= paciente.cpf %>"
+              class="form-control mb-2"
+              autofocus
+              disabled
+            />
+            <label for="nome">Nome</label>
+            <input
+              type="text"
+              name="nome"
+              value="<%= paciente.nome %>"
+              class="form-control mb-2"
+              autofocus
+            />
+            <label for="sexo">Sexo</label>
+            <select
+              name="sexo"
+              class="form-control mb-2"
+            >
+              <option <%=
+                (paciente.sexo == "Masculino") ? "selected" : ""
+              %> value="Masculino">Masculino</option>
+              <option <%=
+                (paciente.sexo == "Feminino") ? "selected" : ""
+              %> value="Feminino">Feminino</option>
+            </select>
+            <label for="data_de_nascimento">Data de nascimento</label>
+            <input
+              type="date"
+              name="data_de_nascimento"
+              value="<%= paciente.data_de_nascimento %>"
+              class="form-control mb-2"
+              autofocus
+            />
+            <label for="endereco">Endereço</label>
+            <textarea
+              type="text"
+              name="endereco"
+              rows="3"
+              class="form-control mb-2"
+            ><%= paciente.endereco %></textarea>
+            <label for="telefone">Telefone</label>
+            <input
+              type="text"
+              name="telefone"
+              placeholder="(XX) XXXXX-XXXX"
+              value="<%= paciente.telefone %>"
+              class="form-control mb-2"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Salvar Paciente
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("../partials/_footer") %>
